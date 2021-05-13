@@ -7,7 +7,7 @@ interface Props {
 function Header(props: Props) {
   return (
     <div>
-      <h1>{props.headerTitle}</h1>
+      <h1 className="text-xl">{props.headerTitle}</h1>
     </div>
   );
 }

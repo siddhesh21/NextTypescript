@@ -1,10 +1,14 @@
 import Head from "next/head";
 import { useState } from "react";
+import Header from "../components/Header";
 
-interface Student {
-  // required
+// to make it more powerful
+interface Person {
   title: string;
   age: number;
+}
+interface Student extends Person {
+  // required
   isMale: boolean;
   // optional
   degree?: {
@@ -13,13 +17,15 @@ interface Student {
   };
 }
 
+// const Homes:React.FC = () => {} A functional component
+
 export default function Home() {
   const [name, setName] = useState<string>("siddhesh");
   const [number, setNumber] = useState<number>(1999);
   const [candidate, setCandidate] = useState<Student>({
     title: "Athlete",
     age: 22,
-    isMale: true,s
+    isMale: true,
   });
   return (
     <div>
@@ -31,8 +37,10 @@ export default function Home() {
 
       <h1>Start - TypeScript with Next.js</h1>
       <h2>
-        Your name is {name} {candidate.degree.title}.
+        Your name is {name} {candidate.title}.
       </h2>
+
+      <Header headerTitle="Search Page" />
     </div>
   );
 }
